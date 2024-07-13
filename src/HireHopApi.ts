@@ -1,10 +1,15 @@
+import { JobsEndpoints } from "./endpoints/jobs";
 import { Config } from "./types";
 
 export class HireHopApi {
   private config: Config;
 
+  public jobs: JobsEndpoints;
+
   constructor(config: Config) {
     this.config = config;
+
+    this.jobs = new JobsEndpoints(this);
   }
 
   public async request<TReturnType>(
