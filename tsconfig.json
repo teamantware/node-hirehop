@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "removeComments": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ESNext",
+
+    "baseUrl": ".",
+
+    "strict": true,
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+
+    // TSUP will handle the building of the SDK
+    "noEmit": true,
+
+    // Linter Checks
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "useUnknownInCatchVariables": true,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+
+    "paths": {
+      "~/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "vitest.config.ts", "tsup.config.ts"],
+  "exclude": ["dist/**", "node_modules/"]
+}
