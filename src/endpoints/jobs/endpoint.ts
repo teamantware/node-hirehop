@@ -1,4 +1,5 @@
 import { EndpointsBase } from "../EndpointsBase";
+import { formatJob } from "./functions";
 import { GetJobResponse } from "./types";
 
 export class JobsEndpoints extends EndpointsBase {
@@ -9,9 +10,10 @@ export class JobsEndpoints extends EndpointsBase {
       `/api/job_data.php${params}`,
     );
 
-    // TODO: map the data into a better format that can
-    // easily be used.
+    if (!data) {
+      return null;
+    }
 
-    return data;
+    return formatJob(data);
   }
 }

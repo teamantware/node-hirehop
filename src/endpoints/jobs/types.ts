@@ -201,3 +201,33 @@ export type GetJobResponse = {
   /** Array of tax rates data. */
   standard_tax_rates: unknown[];
 };
+
+export type Job = {
+  account: {
+    reference: string;
+    suspended: boolean;
+  };
+  accountingPackageId: number;
+  address: string;
+  allowEarlyReturns: boolean;
+  archives: number;
+  calculateLateFees: boolean;
+  client: {
+    name: string;
+    id: number;
+    memo: string;
+    reference: string;
+  };
+  collection: "pickup" | "we-deliver" | "courier" | "other";
+  colour: string;
+  companyName: string;
+  user: {
+    id: number;
+    name: string;
+    email: string;
+    imageId: number;
+    jobRole: string;
+    phone: string;
+  };
+  createdAt: Date;
+};
