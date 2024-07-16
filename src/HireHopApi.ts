@@ -1,5 +1,5 @@
-import { JobsEndpoints } from "./endpoints/jobs";
-import { Config } from "./types";
+import { JobsEndpoints } from './endpoints/jobs';
+import { Config } from './types';
 
 export class HireHopApi {
   private config: Config;
@@ -13,10 +13,10 @@ export class HireHopApi {
   }
 
   public async request<TReturnType>(
-    method: "GET" | "POST" | "PUT" | "DELETE",
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE',
     url: string,
     body: unknown = undefined,
-    contentType: string | undefined = undefined,
+    contentType: string | undefined = undefined
   ): Promise<TReturnType | null> {
     try {
       const { domain, token } = this.config;
@@ -26,12 +26,12 @@ export class HireHopApi {
       const options: RequestInit = {
         method,
         headers: {
-          "Content-Type": contentType ?? "application/json",
-          Accept: contentType ?? "application/json",
-          "X-TOKEN": token.trim(),
+          'Content-Type': contentType ?? 'application/json',
+          Accept: contentType ?? 'application/json',
+          'X-TOKEN': token.trim(),
         },
         body: body
-          ? typeof body === "string"
+          ? typeof body === 'string'
             ? body
             : JSON.stringify(body)
           : undefined,
@@ -49,17 +49,17 @@ export class HireHopApi {
         switch (result.status) {
           case 401:
             throw new Error(
-              "Bad or expired token. This can happen if your token has expired.",
+              'Bad or expired token. This can happen if your token has expired.'
             );
 
           case 403:
             throw new Error(
-              "You're not allowed to access this resource. Re-authenticating will not help.",
+              "You're not allowed to access this resource. Re-authenticating will not help."
             );
 
           case 429:
             throw new Error(
-              "The app has exceeded its rate limits. Please try again later.",
+              'The app has exceeded its rate limits. Please try again later.'
             );
         }
       }

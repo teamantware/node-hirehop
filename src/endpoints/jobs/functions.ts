@@ -1,15 +1,15 @@
-import { GetJobResponse, Job } from "./types";
+import { GetJobResponse, Job } from './types';
 
-function getCollectionType(option: number): Job["collection"] {
+function getCollectionType(option: number): Job['collection'] {
   switch (option) {
     case 0:
-      return "pickup";
+      return 'pickup';
     case 1:
-      return "we-deliver";
+      return 'we-deliver';
     case 2:
-      return "courier";
+      return 'courier';
     case 3:
-      return "other";
+      return 'other';
     default:
       throw new Error(`Encountered unknown collection type value: ${option}`);
   }

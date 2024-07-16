@@ -4,11 +4,11 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ["standard-with-typescript", "prettier"],
+  extends: ['standard-with-typescript', 'prettier'],
   overrides: [],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
   rules: {},
 };
