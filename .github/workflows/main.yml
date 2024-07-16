@@ -6,7 +6,9 @@ on:
       - main
 
 jobs:
-  test:
+  typecheck:
+    name: Typecheck
+
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
