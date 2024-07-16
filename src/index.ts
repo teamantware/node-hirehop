@@ -1,3 +1,3 @@
-import { HireHopApi } from "./HireHopApi";
+import { HireHopApi } from './HireHopApi';
 
 export { HireHopApi };

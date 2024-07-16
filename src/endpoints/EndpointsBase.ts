@@ -1,20 +1,20 @@
-import { HireHopApi } from "~/HireHopApi";
+import { HireHopApi } from '~/HireHopApi';
 
 export class EndpointsBase {
   constructor(protected api: HireHopApi) {}
 
   protected async getRequest<TReturnType>(
-    url: string,
+    url: string
   ): Promise<TReturnType | null> {
-    return await this.api.request<TReturnType>("GET", url);
+    return await this.api.request<TReturnType>('GET', url);
   }
 
   protected async postRequest<TReturnType, TBody = unknown>(
     url: string,
     body?: TBody,
-    contentType: string | undefined = undefined,
+    contentType: string | undefined = undefined
   ): Promise<TReturnType | null> {
-    return await this.api.request<TReturnType>("POST", url, body, contentType);
+    return await this.api.request<TReturnType>('POST', url, body, contentType);
   }
 
   protected paramsFor(args: any) {
@@ -24,12 +24,12 @@ export class EndpointsBase {
       if (
         args[key] ||
         args[key] === 0 ||
-        (!args[key] && typeof args[key] === "boolean")
+        (!args[key] && typeof args[key] === 'boolean')
       ) {
         params.append(key, args[key].toString());
       }
     }
 
-    return [...params].length > 0 ? `?${params.toString()}` : "";
+    return [...params].length > 0 ? `?${params.toString()}` : '';
   }
 }

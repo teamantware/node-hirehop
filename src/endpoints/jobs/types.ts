@@ -218,7 +218,7 @@ export type Job = {
     memo: string;
     reference: string;
   };
-  collection: "pickup" | "we-deliver" | "courier" | "other";
+  collection: 'pickup' | 'we-deliver' | 'courier' | 'other';
   colour: string;
   companyName: string;
   user: {
