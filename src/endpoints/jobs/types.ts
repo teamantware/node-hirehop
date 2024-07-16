@@ -230,4 +230,17 @@ export type Job = {
     phone: string;
   };
   createdAt: Date;
+  creditLimit: string;
+  creditPeriod: number;
+  currency: {
+    code: string;
+    decimals: number;
+    decimalSeparator: string;
+    multiplier: number;
+    name: string;
+    negativeFormat: string;
+    symbol: string;
+    symbolPosition: 'before' | 'after';
+    thousandSeparator: string;
+  };
 };

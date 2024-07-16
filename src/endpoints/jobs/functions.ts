@@ -15,6 +15,21 @@ function getCollectionType(option: number): Job['collection'] {
   }
 }
 
+function getCurrencySymbolPosition(
+  position: number
+): Job['currency']['symbolPosition'] {
+  switch (position) {
+    case 0:
+      return 'before';
+    case 1:
+      return 'after';
+    default:
+      throw new Error(
+        `Encountered unknown currency symbol position: ${position}`
+      );
+  }
+}
+
 export function formatJob(dto: GetJobResponse): Job {
   return {
     account: {
@@ -44,5 +59,18 @@ export function formatJob(dto: GetJobResponse): Job {
       phone: dto.CREATED_BY_TELEPHONE,
     },
     createdAt: new Date(dto.CREATE_DATE),
+    creditLimit: dto.CREDIT_LIMIT,
+    creditPeriod: dto.CREDIT_PERIOD,
+    currency: {
+      code: dto.CURRENCY.CODE,
+      decimals: dto.CURRENCY.DECIMALS,
+      decimalSeparator: dto.CURRENCY.DECIMAL_SEPARATOR,
+      multiplier: dto.CURRENCY.MULTIPLIER,
+      name: dto.CURRENCY.NAME,
+      negativeFormat: dto.CURRENCY.NEGATIVE_FORMAT,
+      symbol: dto.CURRENCY.SYMBOL,
+      symbolPosition: getCurrencySymbolPosition(dto.CURRENCY.SYMBOL_POSITION),
+      thousandSeparator: dto.CURRENCY.THOUSAND_SEPARATOR,
+    },
   };
 }
