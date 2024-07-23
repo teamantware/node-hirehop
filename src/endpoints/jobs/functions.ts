@@ -15,6 +15,21 @@ function getCollectionType(option: number): Job['collection'] {
   }
 }
 
+function getDeliveryType(option: number): Job['delivery'] {
+  switch (option) {
+    case 0:
+      return 'return';
+    case 1:
+      return 'we-collect';
+    case 2:
+      return 'courier';
+    case 3:
+      return 'other';
+    default:
+      throw new Error(`Encountered unknown collection type value: ${option}`);
+  }
+}
+
 function getCurrencySymbolPosition(
   position: number
 ): Job['currency']['symbolPosition'] {
@@ -72,5 +87,14 @@ export function formatJob(dto: GetJobResponse): Job {
       symbolPosition: getCurrencySymbolPosition(dto.CURRENCY.SYMBOL_POSITION),
       thousandSeparator: dto.CURRENCY.THOUSAND_SEPARATOR,
     },
+    customIndex: dto.CUSTOM_INDEX,
+    defaultDiscount: dto.DEFAULT_DISCOUNT,
+    defaultSalesTax: dto.DEFAULT_SALES_TAX,
+    delivery: getDeliveryType(dto.DELIVER),
+    depot: {
+      id: dto.DEPOT_ID,
+      name: dto.DEPOT,
+    },
+    details: dto.DETAILS,
   };
 }

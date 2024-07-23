@@ -243,4 +243,13 @@ export type Job = {
     symbolPosition: 'before' | 'after';
     thousandSeparator: string;
   };
+  customIndex: string;
+  defaultDiscount: number;
+  defaultSalesTax: number;
+  delivery: 'return' | 'we-collect' | 'courier' | 'other';
+  depot: {
+    id: number;
+    name: string;
+  };
+  details: string;
 };
